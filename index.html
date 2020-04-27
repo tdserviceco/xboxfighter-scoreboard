@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Websocket Xboxfighter Scoreboard</title>
+    <script src="/socket.io/socket.io.js"></script>
+</head>
+
+<body>
+    <main class="client">
+          
+    </main>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script>
+        // Front-end client stuff
+        $(document).ready(function () {
+            const socket = io.connect('http://localhost:3000');
+            socket.on('news', (data) => {
+                $('.client').html('<p>'+ data.database +'</p>');
+                socket.emit('server', { client: 'data to server' });
+            });
+        })
+    </script>
+</body>
+
+</html>
