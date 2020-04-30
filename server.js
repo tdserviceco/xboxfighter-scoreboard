@@ -1,27 +1,57 @@
-let app = require('express')();
-let server = require('http').Server(app)
-let io = require('socket.io').listen(server);
-
-server.listen(process.env.PORT || 3000);
-console.log("Server running....");
-
+const express = require('express')
+const app = express();
+const http = require('http').createServer(app);
+const io = require('socket.io')(http);
+app.use(express.static('public'))
 // Front-end
-app.get('/', function(req, res) {
+app.get('/', function (req, res) {
   res.sendFile(__dirname + '/index.html')
 })
 
-app.get('/config/backend', function(req, res) {
+app.get('/backend', function (req, res) {
   res.sendFile(__dirname + '/backend.html');
 })
 
+http.listen(process.env.PORT || 3000, () => {
+  console.log('listening on *:3000');
+});
+
 io.on('connection', (socket) => {
-  console.log('Someone entered the site');
-  socket.emit('database', { server: 'stuff'});
-  socket.on('server', (data) => {
-    console.log(data);
+  console.log('a user connected');
+  socket.on('disconnect', () => {
+    console.log('user disconnected');
   });
 
-  socket.on('disconnect', () => {
-    console.log('Someone closed a tab');
+  socket.on('server', (info) => {
+
+    let p1name = info.client[0].value,
+    p1team = info.client[1].value,
+    p1country = info.client[2].value,
+    p1score = info.client[3].value,
+    round = info.client[4].value,
+    p2score = info.client[5].value,
+    p2team = info.client[6].value,
+    p2name = info.client[7].value,
+    p2country = info.client[8].value,
+    commentator1 = info.client[9].value,
+    commentator2 = info.client[10].value,
+    commentator3 = info.client[11].value,
+    game = info.client[12].value;
+
+    io.emit('update', {
+      'p1name' : p1name,
+      'p1team' : p1team,
+      'p1score' : p1score,
+      'p1country' : p1country,
+      'round' : round,
+      'p2score' : p2score,
+      'p2team' : p2team,
+      'p2name' : p2name,
+      'p2country' : p2country,
+      'commentator1' : commentator1,
+      'commentator2' : commentator2,
+      'commentator3' : commentator3,
+      'game' : game
+    });
   })
 });

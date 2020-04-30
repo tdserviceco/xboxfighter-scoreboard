@@ -1,0 +1,13 @@
+.score {
+  position: absolute;
+  font-size: 48px;
+}
+.p1 > .score {
+  left: 520px; 
+  top: -5px;
+}
+
+.p2 > .score {
+  right: 520px; 
+  top: -5px;
+}

@@ -1,0 +1,17 @@
+.p1 > .team,
+.p2 > .team { margin: 0 10px}
+
+.p1 > .team.sponsor:before,
+.p2 > .team.sponsor:before {
+  content: '|';
+  margin: 0 5px;
+} 
+.p1 > .team.sponsor:after,
+.p2 > .team.sponsor:after {
+  content: '|';
+  margin: 0 5px;
+} 
+.p1 > .team span,
+.p2 > .team span {
+  margin: 0 10px;
+}

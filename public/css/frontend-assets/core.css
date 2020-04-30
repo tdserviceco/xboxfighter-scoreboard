@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans+Narrow:wght@400;700&display=swap');
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+body {
+  color: #fff;
+  text-shadow: -2px 2px 0 #000, 2px 2px 0 #000, 2px -2px 0 #000, -2px -2px 0 #000;
+  text-transform: uppercase;
+  font-family: 'PT Sans Narrow', sans-serif;
+  background-color: transparent;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.hide {
+  opacity: 0;
+}
+
+.display {
+  animation: fadein 2s;
+}
+
+.updated {
+  animation: fadein 2s;
+}
+
+.scoreboard {
+  position: relative;
+  width: 1920px;
+  height: 1080px;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.p1, .p2 {
+  font-size: 32px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  position: absolute;
+}
+
+.p1 {
+  left: 194px;
+  top: 20px;
+}
+
+
+.p2 {
+  right: 182px;
+  top: 20px;
+}
