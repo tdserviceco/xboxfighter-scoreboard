@@ -1,5 +1,13 @@
 @import '../main.css';
+@font-face {
+  font-family: 'shoguns_clanregular';
+  src: url('../../fonts/shogun/shogunsclan-w3wp.woff2') format('woff2'),
+       url('../../fonts/shogun/shogunsclan-w3wp.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
 
+}
 .scoreboard {
+  font-family: 'shoguns_clanregular';
   background-image: url('../../layouts/shamsho2019.png');
 }
