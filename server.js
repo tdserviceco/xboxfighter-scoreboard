@@ -13,7 +13,7 @@ app.get('/backend', function (req, res) {
 })
 
 http.listen(process.env.PORT || 3000, () => {
-  console.log('listening on port X');
+  console.log('server is running')
 });
 
 io.on('connection', (socket) => {
@@ -23,16 +23,16 @@ io.on('connection', (socket) => {
   });
 
   socket.on('server', (info) => {
-
+    console.log(info)
     let p1name = info.client[0].value,
     p1team = info.client[1].value,
     p1country = info.client[2].value,
     p1score = info.client[3].value,
-    round = info.client[4].value,
-    p2score = info.client[5].value,
-    p2team = info.client[6].value,
-    p2name = info.client[7].value,
-    p2country = info.client[8].value,
+    p2name = info.client[4].value,
+    p2team = info.client[5].value,
+    p2country = info.client[6].value,
+    p2score = info.client[7].value,
+    round = info.client[8].value,
     commentator1 = info.client[9].value,
     commentator2 = info.client[10].value,
     commentator3 = info.client[11].value,

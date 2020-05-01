@@ -12,116 +12,124 @@
 <body>
     <main class="backend">
         <form name="setup">
-            <!-- P1 -->
-            <label for="p1name">
-                <h3>Player 1</h3>
-                <input type="text" name="p1name" id="p1name" placeholder="Gamertag">
-            </label>
+            <div class="p1-setup">
+                <!-- P1 -->
+                <label for="p1name">
+                    <h3>Player 1</h3>
+                    <input type="text" name="p1name" id="p1name" placeholder="Gamertag" value="">
+                </label>
 
-            <label for="p1team">
-                <h3>Team</h3>
-                <input type="text" name="p1team" id="p1team" placeholder="Team name (optional)">
-            </label>
+                <label for="p1team">
+                    <h3>Team</h3>
+                    <input type="text" name="p1team" id="p1team" placeholder="Team name (optional)">
+                </label>
 
-            <label for="p1country">
-                <h3>Country</h3>
-                <select name="p1country" id="p1country">
-                    <option default value="xbox">Xbox</option>
-                    <option value="us">usa</option>
-                    <option value="se">sweden</option>
-                    <option value="de">germany</option>
-                    <option value="mx">mexico</option>
-                    <option value="ca">canada</option>
-                    <option value="en">england</option>
-                    <option value="nl">Netherland</option>
-                    <option value="cat">Catalunia</option>
-                </select>
-            </label>
+                <label for="p1country">
+                    <h3>Country</h3>
+                    <select name="p1country" id="p1country">
+                        <option default value="xbox">Xbox</option>
+                        <option value="us">usa</option>
+                        <option value="se">sweden</option>
+                        <option value="de">germany</option>
+                        <option value="mx">mexico</option>
+                        <option value="ca">canada</option>
+                        <option value="en">england</option>
+                        <option value="nl">Netherland</option>
+                        <option value="cat">Catalunia</option>
+                    </select>
+                </label>
 
-            <label for="p1score">
-                <h3>Score</h3>
-                <input type="number" name="p1score" id="p1score" min="0" max="3" value="0">
-            </label>
-
-            <!-- Rounds -->
-
-            <label for="round">
-                <h3>Round</h3>
-                <input type="text" name="round" id="round" placeholder="Optional">
-            </label>
+                <label for="p1score">
+                    <h3>Score</h3>
+                    <input type="number" name="p1score" id="p1score" min="0" value="0">
+                </label>
+            </div>
 
             <!-- P2 -->
+            <div class="p2-setup">
+                <label for="p2name">
+                    <h3>Player 2</h3>
+                    <input type="text" name="p2name" id="p2name" placeholder="Gamertag" value="">
+                </label>
 
-            <label for="p2score">
-                Score
-                <input type="number" name="p2score" id="p2score" min="0" max="3" value="0">
-            </label>
+                <label for="p2team">
+                    <h3>Team</h3>
+                    <input type="text" name="p2team" id="p2team" placeholder="Team name (optional)">
+                </label>
 
-            <label for="p1team">
-                Team
-                <input type="text" name="p2team" id="p2team" placeholder="Team name (optional)">
-            </label>
+                <label for="p2country">
+                    <h3>Country</h3>
+                    <select name="p2country" id="p2country">
+                        <option default value="xbox">Xbox</option>
+                        <option value="us">usa</option>
+                        <option value="se">sweden</option>
+                        <option value="de">germany</option>
+                        <option value="mx">mexico</option>
+                        <option value="ca">canada</option>
+                        <option value="en">england</option>
+                        <option value="nl">Netherland</option>
+                        <option value="cat">Catalunia</option>
+                    </select>
+                </label>
 
-            <label for="p1name">
-                Player 2
-                <input type="text" name="p2name" id="p2name" placeholder="Gamertag">
-            </label>
+                <label for="p2score">
+                    <h3>Score</h3>
+                    <input type="number" name="p2score" id="p2score" min="0" value="0">
+                </label>
+            </div>
 
-            <label for="p2country">
-                <h3>Country</h3>
-                <select name="p2country" id="p2country">
-                    <option default value="xbox">Xbox</option>
-                    <option value="us">usa</option>
-                    <option value="se">sweden</option>
-                    <option value="de">germany</option>
-                    <option value="mx">mexico</option>
-                    <option value="ca">canada</option>
-                    <option value="en">england</option>
-                    <option value="nl">Netherland</option>
-                    <option value="cat">Catalunia</option>
-                </select>
-            </label>
+            <!-- Rounds -->
+            <div class="round">
+                <label for="round">
+                    <h3>Round</h3>
+                    <input type="text" name="round" id="round" placeholder="Optional">
+                </label>
+            </div>
 
             <!-- Commentator -->
-            <label>
+            <div class="commentators-and-game">
+                <label>
+                    <h3>Commentators</h3>
+                    <select name="commentator1">
+                        <option value="none" default>None</option>
+                        <option value="lemmy">lemmy</option>
+                        <option value="virobloc">virobloc</option>
+                        <option value="zer0">zer0</option>
+                        <option value="freshman">freshman</option>
+                        <option value="krissrock">krissrock</option>
+                        <option value="tdserviceco">tdserviceco</option>
+                    </select>
 
-                <select name="commentator1">
-                    <option value="none" default>None</option>
-                    <option value="lemmy">lemmy</option>
-                    <option value="virobloc">virobloc</option>
-                    <option value="zer0">zer0</option>
-                    <option value="freshman">freshman</option>
-                    <option value="krissrock">krissrock</option>
-                    <option value="tdserviceco">tdserviceco</option>
-                </select>
+                    <select name="commentator2">
+                        <option value="none" default>None</option>
+                        <option value="lemmy">lemmy</option>
+                        <option value="virobloc">virobloc</option>
+                        <option value="zer0">zer0</option>
+                        <option value="freshman">freshman</option>
+                        <option value="krissrock">krissrock</option>
+                        <option value="tdserviceco">tdserviceco</option>
+                    </select>
 
-                <select name="commentator2">
-                    <option value="none" default>None</option>
-                    <option value="lemmy">lemmy</option>
-                    <option value="virobloc">virobloc</option>
-                    <option value="zer0">zer0</option>
-                    <option value="freshman">freshman</option>
-                    <option value="krissrock">krissrock</option>
-                    <option value="tdserviceco">tdserviceco</option>
-                </select>
+                    <select name="commentator3">
+                        <option value="none" default>None</option>
+                        <option value="lemmy">lemmy</option>
+                        <option value="virobloc">virobloc</option>
+                        <option value="zer0">zer0</option>
+                        <option value="freshman">freshman</option>
+                        <option value="krissrock">krissrock</option>
+                        <option value="tdserviceco">tdserviceco</option>
+                    </select>
+                </label>
 
-                <select name="commentator3">
-                    <option value="none" default>None</option>
-                    <option value="lemmy">lemmy</option>
-                    <option value="virobloc">virobloc</option>
-                    <option value="zer0">zer0</option>
-                    <option value="freshman">freshman</option>
-                    <option value="krissrock">krissrock</option>
-                    <option value="tdserviceco">tdserviceco</option>
-                </select>
-            </label>
-
-            <label for="game">
-                <select name="game" id="game">
-                    <option value="shamsho">Samurai Shodown 2019</option>
-                    <option value="sf">Street fighter</option>
-                </select>
-            </label>
+                <label for="game">
+                    <h3>Game profile for CSS</h3>
+                    <select name="game" id="game">
+                        <option value="shamsho">Samurai Shodown 2019</option>
+                        <option value="sf">Street fighter</option>
+                    </select>
+                </label>
+            </div>
+            <!-- <button type="button" class="switchPlace">Switch</button> -->
             <input type="submit" value="update">
         </form>
     </main>
