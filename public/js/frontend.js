@@ -1,7 +1,7 @@
 
 $(document).ready(function () {
-
-  const socket = io.connect('http://localhost:3000');
+  // const socket = io.connect('http://localhost:3000');
+  const socket = io.connect('https://xboxfighter-scoreboard.herokuapp.com');
   socket.on('update', (data) => {
 
     let p1country = data.p1country,
@@ -82,26 +82,25 @@ $(document).ready(function () {
     let commentator1 = data.commentator1,
       commentator2 = data.commentator2,
       commentator3 = data.commentator3;
-
-    if ($.isEmptyObject(commentator1)) {
-      $('.commentators > .commentator1').html('<span></span>').removeClass('hide').addClass('display');
+    if (commentator1 === 'none') {
+      $('.commentators > .commentator1').empty();
     }
     else {
-      $('.commentators > .commentator1').html('<span>' + commentator1 + '</span>').removeClass('hide').addClass('display');
+      $('.commentators > .commentator1').html('<span class="fas fa-microphone-alt">' + commentator1 + '</span>').removeClass('hide').addClass('display');
     }
 
-    if ($.isEmptyObject(commentator2)) {
-      $('.commentators > .commentator2').html('<span></span>').removeClass('hide').addClass('display');
+    if (commentator2 === 'none') {
+      $('.commentators > .commentator2').empty();
     }
     else {
-      $('.commentators > .commentator2').html('<span>' + commentator2 + '</span>').removeClass('hide').addClass('display');
+      $('.commentators > .commentator2').html('<span class="fas fa-microphone-alt">' + commentator2 + '</span>').removeClass('hide').addClass('display');
     }
 
-    if ($.isEmptyObject(commentator3)) {
-      $('.commentators > .commentator3').html('<span></span>').removeClass('hide').addClass('display');
+    if (commentator3 === 'none') {
+      $('.commentators > .commentator3').empty();
     }
     else {
-      $('.commentators > .commentator3').html('<span>' + commentator3 + '</span>').removeClass('hide').addClass('display');
+      $('.commentators > .commentator3').html('<span class="fas fa-microphone-alt">' + commentator3 + '</span>').removeClass('hide').addClass('display');
     }
 
     let game = data.game;

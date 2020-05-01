@@ -1,0 +1,15 @@
+.commentators {
+  position: absolute;
+  bottom: 40px;
+  right: 40px;
+  font-size: 36px;
+  border: 2px inset #000;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.commentator1,
+.commentator2,
+.commentator3 {
+  margin: 10px;
+}

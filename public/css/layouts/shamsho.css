@@ -8,6 +8,10 @@
 
 }
 .scoreboard {
-  font-family: 'shoguns_clanregular';
   background-image: url('../../layouts/shamsho2019.png');
+}
+
+.p1 > .score,
+.p2 > .score {
+  font-family: 'shoguns_clanregular';
 }

@@ -57,3 +57,8 @@ body {
   right: 182px;
   top: 20px;
 }
+
+.fa-microphone-alt:before {
+  content: "\f3c9";
+  margin-right: 30px;
+}
