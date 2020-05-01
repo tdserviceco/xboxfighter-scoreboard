@@ -13,7 +13,7 @@ app.get('/backend', function (req, res) {
 })
 
 http.listen(process.env.PORT || 3000, () => {
-  console.log('listening on *:3000');
+  console.log('listening on port X');
 });
 
 io.on('connection', (socket) => {
