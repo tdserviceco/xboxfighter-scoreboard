@@ -17,11 +17,14 @@
                 <label for="p1name">
                     <h3>Player 1</h3>
                     <input type="text" name="p1name" id="p1name" placeholder="Gamertag" value="">
+                    <input type="text" name="p1name" id="p1nameClone" disabled="true" class="hidden" value="">
                 </label>
 
                 <label for="p1team">
                     <h3>Team</h3>
                     <input type="text" name="p1team" id="p1team" placeholder="Team name (optional)">
+                    <input type="text" name="p1team" id="p1teamClone" disabled="true" class="hidden" value="">
+
                 </label>
 
                 <label for="p1country">
@@ -37,11 +40,23 @@
                         <option value="nl">Netherland</option>
                         <option value="cat">Catalunia</option>
                     </select>
+                    <select name="p1country" id="p1countryClone" disabled="true" class="hidden">
+                        <option default value="xbox">Xbox</option>
+                        <option value="us">usa</option>
+                        <option value="se">sweden</option>
+                        <option value="de">germany</option>
+                        <option value="mx">mexico</option>
+                        <option value="ca">canada</option>
+                        <option value="en">england</option>
+                        <option value="nl">Netherland</option>
+                        <option value="cat">Catalunia</option>
+                    </select>
                 </label>
 
                 <label for="p1score">
                     <h3>Score</h3>
                     <input type="number" name="p1score" id="p1score" min="0" value="0">
+                    <input type="number" name="p1score" id="p1scoreClone" disabled="true" class="hidden">
                 </label>
             </div>
 
@@ -50,11 +65,14 @@
                 <label for="p2name">
                     <h3>Player 2</h3>
                     <input type="text" name="p2name" id="p2name" placeholder="Gamertag" value="">
+                    <input type="text" name="p2name" id="p2nameClone" disabled="true" class="hidden" value="">
+
                 </label>
 
                 <label for="p2team">
                     <h3>Team</h3>
                     <input type="text" name="p2team" id="p2team" placeholder="Team name (optional)">
+                    <input type="text" name="p2team" id="p2teamClone" disabled="true" class="hidden" placeholder="Team name (optional)">
                 </label>
 
                 <label for="p2country">
@@ -70,11 +88,23 @@
                         <option value="nl">Netherland</option>
                         <option value="cat">Catalunia</option>
                     </select>
+                    <select name="p2country" id="p2countryClone" disabled="true" class="hidden">
+                        <option default value="xbox">Xbox</option>
+                        <option value="us">usa</option>
+                        <option value="se">sweden</option>
+                        <option value="de">germany</option>
+                        <option value="mx">mexico</option>
+                        <option value="ca">canada</option>
+                        <option value="en">england</option>
+                        <option value="nl">Netherland</option>
+                        <option value="cat">Catalunia</option>
+                    </select>
                 </label>
 
                 <label for="p2score">
                     <h3>Score</h3>
                     <input type="number" name="p2score" id="p2score" min="0" value="0">
+                    <input type="number" name="p1score" id="p2scoreClone" disabled="true" class="hidden">
                 </label>
             </div>
 
@@ -124,12 +154,13 @@
                 <label for="game">
                     <h3>Game profile for CSS</h3>
                     <select name="game" id="game">
+                        <option value="none">Choose</option>
                         <option value="shamsho">Samurai Shodown 2019</option>
                         <option value="sf">Street fighter</option>
                     </select>
                 </label>
             </div>
-            <!-- <button type="button" class="switchPlace">Switch</button> -->
+            <button type="button" class="swap">Switch</button>
             <input type="submit" value="update">
         </form>
     </main>
