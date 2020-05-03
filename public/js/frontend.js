@@ -1,7 +1,7 @@
 
 $(document).ready(function () {
-  const socket = io.connect('http://localhost:3000');
-  // const socket = io.connect('https://xboxfighter-scoreboard.herokuapp.com');
+  // const socket = io.connect('http://localhost:3000');
+  const socket = io.connect('https://xboxfighter-scoreboard.herokuapp.com');
   socket.on('update', (data) => {
 
     let p1country = data.p1country,
