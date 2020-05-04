@@ -116,7 +116,7 @@ $(document).ready(function () {
       .empty()
       .append('<meta charset="UTF-8">')
       .append('<meta name="viewport" content="width=device-width, initial-scale=1.0">')
-      .append('<title>Xboxfighters Scoreboard</title>')
+      .append('<title>XboxfightersFGC Scoreboard</title>')
       .append('<link rel="stylesheet" href="../css/layouts/' + game + '.css">');
     }
   });
