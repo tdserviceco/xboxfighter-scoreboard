@@ -1,7 +1,9 @@
 const express = require('express')
 const app = express();
 const http = require('http').createServer(app);
-const io = require('socket.io')(http);
+const io = require('socket.io')(http, {
+  pingInterval: 10000
+});
 app.use(express.static('public'))
 // Front-end
 app.get('/', function (req, res) {

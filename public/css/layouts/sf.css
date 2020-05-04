@@ -19,16 +19,16 @@
 
 .p1 > .score,
 .p2 > .score {
-  top: -1px;
-  font-size: 40px;
+  top: 3px;
+  font-size: 32px;
 }
 
 .p1 > .score {
-  left: 539px;
+  left: 535px;
 }
 
 .p2 > .score {
-  right: 550px;
+  right: 548px;
 }
 
 .country img {

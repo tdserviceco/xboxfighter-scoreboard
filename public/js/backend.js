@@ -1,4 +1,6 @@
 $(document).ready(function () {
+  const socket = io.connect('http://localhost:3000');
+  // const socket = io.connect('https://xboxfighter-scoreboard.herokuapp.com');
   console.log('Backend')
   $('.swap').click(function(){
     /**
@@ -75,9 +77,7 @@ $(document).ready(function () {
     e.preventDefault()
     let value;
     value = $(this).serializeArray();
-    
-    // const socket = io.connect('http://localhost:3000');
-    const socket = io.connect('https://xboxfighter-scoreboard.herokuapp.com');
+
     socket.emit('server', { client: value });
   })
 })
