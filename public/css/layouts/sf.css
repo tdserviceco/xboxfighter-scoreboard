@@ -1,37 +1,57 @@
 @import '../main.css';
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@700&display=swap');
 
-.scoreboard {
+.sf {
+  font-family: 'Kanit', sans-serif;
+  font-size: 28px;
+}
+
+.sf .scoreboard {
   background-image: url('../../layouts/sf.png');
 }
 
-.p1,
-.p2 {
+.sf .score {
+  position: absolute;
+}
+
+.sf .p1 .score {
+  line-height: 1.2;
+  left: 521px;
+}
+.sf .p2 .score {
+  line-height: 1.2;
+  right: 515px;
+}
+
+.sf .p1, .sf .p2 {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
   top: 12px;
 }
 
-.p1 {
-  left: 194px;
+.sf .p1 {
+  left: 215px;
 }
 
-.p2 {
-  right: 182px;
+.sf .p2 {
+  right: 220px;
 }
 
-.p1 > .score,
-.p2 > .score {
-  top: 3px;
-  font-size: 32px;
+.sf .p1>.country {
+  box-shadow: 9px 0px 9px -9px rgba(255, 165, 0, 0.58);
+  margin-right: 20px;
 }
 
-.p1 > .score {
-  left: 535px;
+.sf .p1>.team, 
+.sf .p1>.gamertag {
+  margin-right: 20px;
+  line-height: 1.3;
 }
 
-.p2 > .score {
-  right: 548px;
-}
-
-.country img {
-  width: 60px;
-  height: 35px;
+.sf .p2>.team,
+.sf .p2>.gamertag {
+  margin-right: 20px;
+  line-height: 1.3;
 }

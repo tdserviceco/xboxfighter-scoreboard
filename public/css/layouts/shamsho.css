@@ -1,17 +1,65 @@
-@import '../main.css';
 @font-face {
-  font-family: 'shoguns_clanregular';
-  src: url('../../fonts/shogun/shogunsclan-w3wp.woff2') format('woff2'),
-       url('../../fonts/shogun/shogunsclan-w3wp.woff') format('woff');
+  src: url('../../fonts/shogun/shogunsclan-w3wp.woff2') format('woff2'), url('../../fonts/shogun/shogunsclan-w3wp.woff') format('woff');
   font-weight: normal;
   font-style: normal;
-
+  font-family: 'shoguns_clanregular';
 }
-.scoreboard {
+
+
+
+.shamsho .scoreboard {
   background-image: url('../../layouts/shamsho2019.png');
 }
 
-.p1 > .score,
-.p2 > .score {
+.shamsho .score {
   font-family: 'shoguns_clanregular';
+  position: absolute;
+  font-size: 48px;
+  top: -10px;
+}
+
+.shamsho .p1 .score {
+  left: 515px;
+}
+.shamsho .p2 .score {
+  right: 515px;
+}
+
+.shamsho .p1, .shamsho .p2 {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  top: 22px;
+}
+
+.shamsho .p1 {
+  left: 215px;
+}
+
+.shamsho .p2 {
+  right: 210px;
+}
+
+
+.shamsho .p1>.country {
+  margin-right: 20px;
+}
+
+.shamsho .p1>.team, 
+.shamsho .p1>.gamertag {
+  margin-right: 20px;
+  font-size: 40px;
+  line-height: 1.0;
+}
+
+.shamsho .p2>.team,
+.shamsho .p2>.gamertag {
+  margin-right: 20px;
+  font-size: 40px;
+  line-height: 1.0;
+}
+
+.shamsho .commentators b {
+  font-size: 28px;
 }

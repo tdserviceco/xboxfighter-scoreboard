@@ -11,7 +11,7 @@
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#0e7a0d">
     <title>XboxfightersFGC Scoreboard Setup</title>
-    <link rel="stylesheet" href="./css/backend-main.css">
+    <link rel="stylesheet" href="./css/backend.css">
     <script src="/socket.io/socket.io.js"></script>
 </head>
 
@@ -23,13 +23,14 @@
                 <label for="p1name">
                     <h3>Player 1</h3>
                     <input type="text" name="p1name" id="p1name" placeholder="Gamertag" value="">
-                    <input type="text" name="p1name" id="p1nameClone" disabled="true" class="hidden" value="">
+                    <input type="text" name="p1name" id="p1nameClone" disabled="true" class="hidden" value="" placeholder="Gamertag">
                 </label>
 
                 <label for="p1team">
                     <h3>Team</h3>
                     <input type="text" name="p1team" id="p1team" placeholder="Team name (optional)">
-                    <input type="text" name="p1team" id="p1teamClone" disabled="true" class="hidden" value="" placeholder="Team name (optional)">
+                    <input type="text" name="p1team" id="p1teamClone" disabled="true" class="hidden" value=""
+                        placeholder="Team name (optional)">
 
                 </label>
 
@@ -54,7 +55,7 @@
                         <option value="mx">mexico</option>
                         <option value="ca">canada</option>
                         <option value="en">england</option>
-                        <option value="nl">nnetherland</option>
+                        <option value="nl">netherland</option>
                         <option value="cat">catalunia</option>
                     </select>
                 </label>
@@ -71,14 +72,15 @@
                 <label for="p2name">
                     <h3>Player 2</h3>
                     <input type="text" name="p2name" id="p2name" placeholder="Gamertag" value="">
-                    <input type="text" name="p2name" id="p2nameClone" disabled="true" class="hidden" value="">
+                    <input type="text" name="p2name" id="p2nameClone" disabled="true" class="hidden" value="" placeholder="Gamertag">
 
                 </label>
 
                 <label for="p2team">
                     <h3>Team</h3>
                     <input type="text" name="p2team" id="p2team" placeholder="Team name (optional)">
-                    <input type="text" name="p2team" id="p2teamClone" disabled="true" class="hidden" placeholder="Team name (optional)">
+                    <input type="text" name="p2team" id="p2teamClone" disabled="true" class="hidden"
+                        placeholder="Team name (optional)">
                 </label>
 
                 <label for="p2country">
@@ -162,6 +164,7 @@
                     <select name="game" id="game">
                         <option value="shamsho">Samurai Shodown 2019</option>
                         <option value="sf">Street fighter</option>
+                        <option value="dbz">Dragon Ball Fighterz</option>
                     </select>
                 </label>
             </div>

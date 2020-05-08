@@ -1,0 +1,22 @@
+/* Backend stuff */
+@import './reset.css';
+
+form {
+  padding: 10px;
+}
+
+label h3 {
+  margin: 5px 0;
+}
+
+.commentators-and-game select {
+  margin-bottom: 10px;
+}
+
+.hidden {
+  display: none;
+}
+
+.show {
+  display: inline-block;
+}

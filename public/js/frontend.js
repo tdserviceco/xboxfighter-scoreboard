@@ -1,124 +1,103 @@
+let p1name = $('.p1 > .gamertag'),
+  p2name = $('.p2 > .gamertag'),
+  p1team = $('.p1 > .team'),
+  p2team = $('.p2 > .team'),
+  p1country = $('.p1 > .country'),
+  p2country = $('.p2 > .country'),
+  p1score = $('.p1 > .score'),
+  p2score = $('.p2 > .score'),
+  commentator1 = $('.commentators > .commentator-1'),
+  commentator2 = $('.commentators > .commentator-2'),
+  commentator3 = $('.commentators > .commentator-3');
 
 $(document).ready(function () {
   // const socket = io.connect('http://localhost:3000');
   const socket = io.connect('https://xboxfighter-scoreboard.herokuapp.com');
-  socket.on('update', (data) => {
-    $('html').css('display', 'none')
-    setTimeout(function(){
-      $('html').css('display', 'block')
-    },1000)
-    let p1country = data.p1country,
-    p1name = data.p1name,
-    p1team = data.p1team,
-    p1score = data.p1score;
-    
-    if ($.isEmptyObject(p1country)) {
-      $('.p1 > .country').html('<img src="./flags/xbox.png" />').removeClass('hide').addClass('display');
+  socket.on('template', (data) => {
+    // Display what template we are using
+    if (data.template.value === 'sf') {
+      $('body').removeClass('shamsho dbz');
+      $('body').addClass('sf');
     }
-    else {
-      $('.p1 > .country').html('<img src="./flags/' + p1country + '.png" alt="country flag" />').removeClass('hide').addClass('display');
+    if (data.template.value === 'shamsho') {
+      $('body').removeClass('sf dbz');
+      $('body').addClass('shamsho');
     }
     
-    if ($.isEmptyObject(p1team)) {
-      $('.p1 > .team').html('').removeClass('sponsor');
-    }
-    else {
-      $('.p1 > .team').html('<span>' + p1team + '</span>').removeClass('hide').addClass('display sponsor');
+    if (data.template.value === 'dbz') {
+      $('body').removeClass('sf shamsho');
+      $('body').addClass('dbz');
     }
     
-    if ($.isEmptyObject(p1name)) {
-      $('.p1 > .gamertag').html('<span></span>').removeClass('hide').addClass('display');
-    }
-    else {
-      $('.p1 > .gamertag').html('<span>' + p1name + '</span>').removeClass('hide').addClass('display');
-    }
-    
-    if ($.isEmptyObject(p1score)) {
-      $('.p1 > .score').html('<span></span>').removeClass('hide').addClass('display');
-    }
-    else {
-      $('.p1 > .score').html('<span>' + p1score + '</span>').removeClass('hide').addClass('display');
-    }
-    
-    let p2country = data.p2country,
-    p2name = data.p2name,
-    p2team = data.p2team,
-    p2score = data.p2score;
-    
-    if ($.isEmptyObject(p2country)) {
-      $('.p2 > .country').html('<img src="./flags/xbox.png" />').removeClass('hide').addClass('display');
-    }
-    else {
-      $('.p2 > .country').html('<img src="./flags/' + p2country + '.png" alt="country flag" />').removeClass('hide').addClass('display');
-    }
-    
-    if ($.isEmptyObject(p2team)) {
-      $('.p2 > .team').html('').removeClass('sponsor');
-    }
-    else {
-      $('.p2 > .team').html('<span>' + p2team + '</span>').removeClass('hide').addClass('display sponsor');
-    }
-    
-    if ($.isEmptyObject(p2name)) {
-      $('.p2 > .gamertag').html('<span></span>').removeClass('hide').addClass('display');
-    }
-    else {
-      $('.p2 > .gamertag').html('<span>' + p2name + '</span>').removeClass('hide').addClass('display');
-    }
-    
-    if ($.isEmptyObject(p2score)) {
-      $('.p2 > .score').html('<span></span>').removeClass('hide').addClass('display');
-    }
-    else {
-      $('.p2 > .score').html('<span>' + p2score + '</span>').removeClass('hide').addClass('display');
-    }
-    
-    let round = data.round;
-    
-    if ($.isEmptyObject(round)) {
-      $('.p2 > .round').html('<span></span>').removeClass('hide').addClass('display');
-    }
-    else {
-      $('.p2 > .round').html('<span>' + round + '</span>').removeClass('hide').addClass('display');
-    }
-    
-    let commentator1 = data.commentator1,
-    commentator2 = data.commentator2,
-    commentator3 = data.commentator3;
-    
-    if (commentator1 === 'none') {
-      $('.commentators > .commentator1').empty();
-    }
-    else {
-      $('.commentators > .commentator1').html('<span class="fas fa-microphone-alt">' + commentator1 + '</span>').removeClass('hide').addClass('display');
-    }
-    
-    if (commentator2 === 'none') {
-      $('.commentators > .commentator2').empty();
-    }
-    else {
-      $('.commentators > .commentator2').html('<span class="fas fa-microphone-alt">' + commentator2 + '</span>').removeClass('hide').addClass('display');
-    }
-    
-    if (commentator3 === 'none') {
-      $('.commentators > .commentator3').empty();
-    }
-    else {
-      $('.commentators > .commentator3').html('<span class="fas fa-microphone-alt">' + commentator3 + '</span>').removeClass('hide').addClass('display');
-    }
-    
-    let game = data.game;
-    if ($.isEmptyObject(game)) {
-      return false;
-    }
-    else {
-      $('head')
-      .empty()
-      .append('<meta charset="UTF-8">')
-      .append('<meta name="viewport" content="width=device-width, initial-scale=1.0">')
-      .append('<title>XboxfightersFGC Scoreboard</title>')
-      .append('<link rel="stylesheet" href="../css/layouts/' + game + '.css">');
-    }
-  });
+  })
+  socket.on('layout', (data) => {
 
+    // Check update for Player 1
+    if ($('#p1flag').attr('src') !== './flags/' + data.layout.p1country.value + '.png') {
+      p1country.html('<img id="p1flag" src="./flags/' + data.layout.p1country.value + '.png" alt="country flag" />');
+    }
+
+    if (p1name.html() !== data.layout.p1name.value) {
+      p1name.html('<h3>' + data.layout.p1name.value + '</h3>')
+    }
+
+    if (p1team.html() !== data.layout.p1team.value) {
+      if ($.isEmptyObject(data.layout.p1team.value)) {
+        $('.p1 > .team').removeClass('sponsor');
+      }
+      else {
+        p1team.html('<span>' + data.layout.p1team.value + '</span>').addClass('sponsor');
+      }
+    }
+
+    if (p1score.html() !== data.layout.p1score.value) {
+      p1score.html('<span>' + data.layout.p1score.value + '</span>')
+    }
+
+    // Check update for Player 2
+    if ($('#p2flag').attr('src') !== './flags/' + data.layout.p2country.value + '.png') {
+      p2country.html('<img id="p2flag" src="./flags/' + data.layout.p2country.value + '.png" alt="country flag" />');
+    }
+
+    if (p2name.html() !== data.layout.p2name.value) {
+      p2name.html('<h3>' + data.layout.p2name.value + '</h3>')
+    }
+
+    if (p2team.html() !== data.layout.p2team.value) {
+      if ($.isEmptyObject(data.layout.p2team.value)) {
+        $('.p2 > .team').removeClass('sponsor');
+      }
+      else {
+        p2team.html('<span>' + data.layout.p2team.value + '</span>').addClass('sponsor');
+      }
+    }
+
+    if (p2score.html() !== data.layout.p2score.value) {
+      p2score.html('<span>' + data.layout.p2score.value + '</span>')
+    }
+
+    // Check who is commentating and if someone need to drop out then remove him.
+    if(commentator1.html() !== data.layout.commentator1.value) {
+      commentator1.html('<i class="fas fa-microphone-alt"></i><b>'+data.layout.commentator1.value+'</b>')
+    }
+
+    if(commentator2.html() !== data.layout.commentator2.value) {
+      commentator2.html('<i class="fas fa-microphone-alt"></i><b>'+data.layout.commentator2.value+'</b>')
+    }
+    if(commentator3.html() !== data.layout.commentator3.value) {
+      commentator3.html('<i class="fas fa-microphone-alt"></i><b>'+data.layout.commentator3.value+'</b>')
+    }
+
+    if(data.layout.commentator1.value === 'none') {
+      commentator1.html('');
+    }
+
+    if(data.layout.commentator2.value === 'none') {
+      commentator2.html('');
+    }
+
+    if(data.layout.commentator3.value === 'none') {
+      commentator3.html('');
+    }
+  })
 })
