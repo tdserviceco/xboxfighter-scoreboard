@@ -88,15 +88,15 @@ $(document).ready(function () {
       commentator3.html('<i class="fas fa-microphone-alt"></i><b>'+data.layout.commentator3.value+'</b>')
     }
 
-    if(data.layout.commentator1.value === 'none') {
+    if(data.layout.commentator1.value === '') {
       commentator1.html('');
     }
 
-    if(data.layout.commentator2.value === 'none') {
+    if(data.layout.commentator2.value === '') {
       commentator2.html('');
     }
 
-    if(data.layout.commentator3.value === 'none') {
+    if(data.layout.commentator3.value === '') {
       commentator3.html('');
     }
   })

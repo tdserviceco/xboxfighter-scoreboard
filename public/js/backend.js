@@ -2,9 +2,10 @@ let update = false,
   data,
   value,
   clicks = 0,
-  timestamp = window.performance.now();
+  accept = false;
 
 $(document).ready(function () {
+
   swapPlace();
   // const socket = io.connect('http://localhost:3000');
   const socket = io.connect('https://xboxfighter-scoreboard.herokuapp.com');
@@ -22,12 +23,11 @@ $(document).ready(function () {
   })
 
   function sendData(value) {
-    console.log(value)
     socket.emit('server', { value: value });
   }
 
   function swapPlace() {
-    $('.swap').click(function(){
+    $('.swap').click(function () {
       /**
        * This is a really messy code.. please if someone can cut down the cloning proccess i would be a happy coder!
        */
@@ -55,7 +55,7 @@ $(document).ready(function () {
       const p2score = $('#p2score');
       const cloneP1score = $('#p1scoreClone');
       const cloneP2score = $('#p2scoreClone');
-  
+
       // P1 & P2 name field
       p1name.prop('disabled', (i, v) => !v)
       cloneP1name.prop('disabled', (i, v) => !v);
@@ -65,8 +65,8 @@ $(document).ready(function () {
       p2name.toggleClass('hidden');
       cloneP1name.val(p2nameVal).toggleClass('show');
       cloneP2name.val(p1nameVal).toggleClass('show');
-  
-  
+
+
       // P1 & P2 team field
       p1team.prop('disabled', (i, v) => !v)
       cloneP1team.prop('disabled', (i, v) => !v);
@@ -76,7 +76,7 @@ $(document).ready(function () {
       p2team.toggleClass('hidden');
       cloneP1team.val(p2teamVal).toggleClass('show');
       cloneP2team.val(p1teamVal).toggleClass('show');
-  
+
       // P1 & P2 country field
       p1country.prop('disabled', (i, v) => !v)
       cloneP1country.prop('disabled', (i, v) => !v);
@@ -86,7 +86,7 @@ $(document).ready(function () {
       p2country.toggleClass('hidden');
       cloneP1country.val(p2countryVal).toggleClass('show');
       cloneP2country.val(p1countryVal).toggleClass('show');
-  
+
       // P1 & P2 score field
       p1score.prop('disabled', (i, v) => !v)
       cloneP1score.prop('disabled', (i, v) => !v);
