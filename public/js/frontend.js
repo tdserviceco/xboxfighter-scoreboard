@@ -11,8 +11,8 @@ let p1name = $('.p1 > .gamertag'),
   commentator3 = $('.commentators > .commentator-3');
 
 $(document).ready(function () {
-  // const socket = io.connect('http://localhost:3000');
-  const socket = io.connect('https://xboxfighter-scoreboard.herokuapp.com');
+  const socket = io.connect('http://localhost:3000');
+  // const socket = io.connect('https://xboxfighter-scoreboard.herokuapp.com');
   socket.on('template', (data) => {
     // Display what template we are using
     if (data.template.value === 'sf') {
@@ -31,7 +31,7 @@ $(document).ready(function () {
     
   })
   socket.on('layout', (data) => {
-
+    console.log(data)
     // Check update for Player 1
     if ($('#p1flag').attr('src') !== './flags/' + data.layout.p1country.value + '.png') {
       p1country.html('<img id="p1flag" src="./flags/' + data.layout.p1country.value + '.png" alt="country flag" />');
@@ -44,6 +44,7 @@ $(document).ready(function () {
     if (p1team.html() !== data.layout.p1team.value) {
       if ($.isEmptyObject(data.layout.p1team.value)) {
         $('.p1 > .team').removeClass('sponsor');
+        p1team.html('');
       }
       else {
         p1team.html('<span>' + data.layout.p1team.value + '</span>').addClass('sponsor');
@@ -66,6 +67,7 @@ $(document).ready(function () {
     if (p2team.html() !== data.layout.p2team.value) {
       if ($.isEmptyObject(data.layout.p2team.value)) {
         $('.p2 > .team').removeClass('sponsor');
+        p2team.html('');
       }
       else {
         p2team.html('<span>' + data.layout.p2team.value + '</span>').addClass('sponsor');

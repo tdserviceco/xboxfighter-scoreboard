@@ -1,22 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@1,900&display=swap');
-@font-face {
-  src: url('../../fonts/dbz/saiyan-sans-webfont.woff2') format('woff2'), url('../../fonts/dbz/saiyan-sans-webfont.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-  font-family: 'saiyan_sansregular';
-}
 
 .dbz .scoreboard {
+  font-family: 'Kanit', sans-serif;
   background-image: url('../../layouts/dbz.png');
 }
 
 .dbz {
   font-size: 28px;
-  font-family: 'saiyan_sansregular';
 }
 
 .dbz .score {
-  font-family: 'Kanit', sans-serif;
   position: absolute;
   font-size: 32px;
 }

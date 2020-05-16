@@ -38,6 +38,7 @@ io.on('connection', (socket) => {
 
 
   socket.on('server', (data) => {
+    console.log(data)
     let doUpdate = data.value[0],
       p1name = data.value[1],
       p1team = data.value[2],
