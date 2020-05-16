@@ -5,7 +5,20 @@ let update = false,
   accept = false;
 
 $(document).ready(function () {
-
+  $('#game').change(function(e){
+    if($(this).val() === 'dbz') {
+      $('#p1country').append('<option value="goku" id="dbzP1">DBZ</option>')
+      $('#p2country').append('<option value="goku" id="dbzP2">DBZ</option>')
+      $('#p1countryClone').append('<option value="goku" id="dbzP1Clone">DBZ</option>')
+      $('#p2countryClone').append('<option value="goku" id="dbzP2Clone>DBZ</option>')
+    }
+    else {
+      $('#p1country #dbzP1').remove()
+      $('#p2country #dbzP2').remove()
+      $('#p1countryClone #dbzP1Clone').remove()
+      $('#p2countryClone #dbzP2Clone').remove()
+    }
+  })
   swapPlace();
   // const socket = io.connect('http://localhost:3000');
   const socket = io.connect('https://xboxfighter-scoreboard.herokuapp.com');
