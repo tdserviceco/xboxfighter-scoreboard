@@ -3,10 +3,27 @@
 
 form {
   padding: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid #000;
+
 }
 
 label h3 {
   margin: 5px 0;
+}
+
+.p1-setup,
+.p2-setup {
+  padding: 10px;
+  display: flex;
+}
+
+.round,
+.commentators-and-game {
+  padding: 10px;
 }
 
 .commentators-and-game select {

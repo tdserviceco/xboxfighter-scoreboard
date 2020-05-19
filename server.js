@@ -1,3 +1,4 @@
+require('dotenv').config()
 const express = require('express')
 const app = express();
 const http = require('http').createServer(app);
@@ -13,7 +14,7 @@ app.get('/', function (req, res) {
 app.get('/backend', function (req, res) {
   let queryUser = req.query.user;
   let queryPassword = req.query.password;
-  if (queryUser === 'xboxfighter' && queryPassword === 'xboxfighters2020') {
+  if (queryUser === process.env.USERNAME && queryPassword ===  process.env.PWRD) {
     res.sendFile(__dirname + '/backend.html');
   }
   else {

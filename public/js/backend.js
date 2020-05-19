@@ -5,10 +5,10 @@ let update = false,
   accept = false;
 
 $(document).ready(function () {
- 
+  clearP1AndP2() 
   swapPlace();
-  const socket = io.connect('http://localhost:3000');
-  // const socket = io.connect('https://xboxfighter-scoreboard.herokuapp.com');
+  // const socket = io.connect('http://localhost:3000');
+  const socket = io.connect('https://xboxfighter-scoreboard.herokuapp.com');
   $('form').on('submit', function (e) {
     e.preventDefault();
     clicks++;
@@ -23,8 +23,48 @@ $(document).ready(function () {
   })
 
   function sendData(value) {
-    console.log(value)
     socket.emit('server', { value: value });
+  }
+
+  function clearP1AndP2() {
+    $('.clear-p1-p2').click(function () {
+      const p1name = $('#p1name');
+      const p2name = $('#p2name');
+      const cloneP1name = $('#p1nameClone');
+      const cloneP2name = $('#p2nameClone');
+      const p1team = $('#p1team');
+      const p2team = $('#p2team');
+      const cloneP1team = $('#p1teamClone');
+      const cloneP2team = $('#p2teamClone');
+      const p1country = $('#p1country');
+      const p2country = $('#p2country');
+      const cloneP1country = $('#p1countryClone');
+      const cloneP2country = $('#p2countryClone');
+      const p1score = $('#p1score');
+      const p2score = $('#p2score');
+      const cloneP1score = $('#p1scoreClone');
+      const cloneP2score = $('#p2scoreClone');
+
+      p1name.val('');
+      p2name.val('');
+      p1team.val('');
+      p2team.val('');
+      p1country.val('xbox');
+      p2country.val('xbox');
+      p1score.val('0');
+      p2score.val('0');
+
+      // Clones
+
+      cloneP1score.val('0')
+      cloneP2score.val('0')
+      cloneP1country.val('xbox');
+      cloneP2country.val('xbox');
+      cloneP1name.val('');
+      cloneP2name.val('');
+      cloneP1team.val('');
+      cloneP2team.val('');
+    });
   }
 
   function swapPlace() {
