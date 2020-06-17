@@ -1,44 +1,54 @@
 $(document).ready(function () {
-  let value;
-  let players = [];
-  let brackets = [];
-  $('form').on('submit', function (e) {
-    e.preventDefault();
-    value = $(this).serializeArray();
-    $.ajax({
-      url: 'https://api.challonge.com/v1/tournaments/' + value[1].value + '/participants.json?api_key=' + value[0].value,
-      success: function (result) {
-        $.each(result, function (i, item) {
-          players[i++] = {
-            'id' : item.participant.id,
-            'display_name' : item.participant.display_name
-          }
-        });
-      }
-    })
+  // const socket = io.connect('http://localhost:3000/');
+  const socket = io.connect('https://xboxfighter-scoreboard.herokuapp.com/');
+  socket.on('challonge-url', (data) => {
+    (function () {
+      var $,
+        __bind = function (fn, me) { return function () { return fn.apply(me, arguments); }; };
 
-    // Now we get the tournament bracket!
-    $.ajax({
-      url: 'https://api.challonge.com/v1/tournaments/' + value[1].value + '/matches.json?api_key=' + value[0].value,
-      success: function (result) {
-        $.each(result, function (i, item) {
-          brackets[i++] = {
-            'player1_id' : item.match.player1_id,
-            'player2_id' : item.match.player1_id,
-            'scores_csv' : item.match.scores_csv,
-            'state' : item.match.state,
-            'round' : item.match.round
+      $ = jQuery;
+
+      $.fn.challonge = function (tournamentUrl, options) {
+        var Challonge;
+        Challonge = (function () {
+
+          function Challonge($this, tournamentUrl, options) {
+            this._$iframe = __bind(this._$iframe, this);
+            this._sourceWithOptions = __bind(this._sourceWithOptions, this); this.tournamentUrl = tournamentUrl || '';
+            this.options = $.extend({}, $.fn.challonge.defaults, options || {});
+            this.subdomain = this.options.subdomain;
+            this.height = $this.height();
+            $this.html(this._$iframe);
           }
-        });
-        $.each(brackets, function(i, tournament){
-          console.log(tournament)
-          if(tournament === null) {
-            console.log('contained null')
-            return false;
-          }
-        })
-      }
-    });
-   
+
+          Challonge.prototype._sourceWithOptions = function () {
+            var subdomain;
+            subdomain = this.subdomain ? "" + this.subdomain + "." : '';
+            return "//" + subdomain + "challonge.com/" + this.tournamentUrl + "/module?" + ($.param(this.options));
+          };
+
+          Challonge.prototype._$iframe = function () {
+            return $("<iframe src='" + (this._sourceWithOptions()) + "' width='100%' height='" + this.height + "' frameborder='0' scrolling='auto' allowtransparency='true' />");
+          };
+
+          return Challonge;
+
+        })();
+        new Challonge($(this), tournamentUrl, options);
+        return this;
+      };
+
+      $.fn.challonge.defaults = {
+        multiplier: 1.0,
+        match_width_multiplier: 1.0,
+        show_final_results: 0,
+        show_standings: 0,
+        theme: 1,
+        subdomain: null
+      };
+
+    }).call(this);
+    $('.xbf').attr('src', 'http://challonge.com/' + data.challonge.url + '/module?scale_to_fit=1');
   })
+
 })

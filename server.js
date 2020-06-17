@@ -23,8 +23,13 @@ app.get('/backend', function (req, res) {
 })
 
 app.get('/challonge', function(req, res){
-    res.sendFile(__dirname + '/obs-tournament-list.html');
+    res.sendFile(__dirname + '/bracket.html');
 })
+
+app.get('/brackets', function(req, res){
+  res.sendFile(__dirname + '/obs-tournament-list.html');
+})
+
 
 http.listen(process.env.PORT || 3000, () => {
   console.log('server is running')
@@ -79,7 +84,6 @@ io.on('connection', (socket) => {
   });
   
   socket.on('challonge',(url) => {
-    console.log(url)
     io.emit('challonge-url', {
       challonge : url
     })
