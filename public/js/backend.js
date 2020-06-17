@@ -27,6 +27,7 @@ $(document).ready(function () {
   }
 
   function clearP1AndP2() {
+    // Resets to default value when clicked on clear button
     $('.clear-p1-p2').click(function () {
       const p1name = $('#p1name');
       const p2name = $('#p2name');
@@ -68,7 +69,6 @@ $(document).ready(function () {
   }
 
   function swapPlace() {
-
     // IF player need to switch side (p1 and p2 side) then we fix before the switch button activates
 
     const p1name = $('#p1name'),
