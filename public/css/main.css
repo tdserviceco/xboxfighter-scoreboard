@@ -66,3 +66,10 @@ body {
   font-family: 'PT Sans Narrow', sans-serif;
   font-size: 250px;
 }
+
+.bg {
+  width: 100%;
+  height: 100vh;
+  background: transparent url('../video/008_off-june20.png') no-repeat center center;
+  background-size: cover !important; 
+}
