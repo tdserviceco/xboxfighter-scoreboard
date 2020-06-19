@@ -31,7 +31,7 @@ $(document).ready(function () {
     
   })
   socket.on('layout', (data) => {
-    console.log(data)
+    // console.log(data)
     // Check update for Player 1
     if ($('#p1flag').attr('src') !== './flags/' + data.layout.p1country.value + '.png') {
       p1country.html('<img id="p1flag" src="./flags/' + data.layout.p1country.value + '.png" alt="country flag" />');

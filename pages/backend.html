@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="mask-icon" href="safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#0e7a0d">
+    <title>XboxfightersFGC Scoreboard Setup</title>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
+    <link rel="stylesheet" href="./css/backend.css">
+    <script src="/socket.io/socket.io.js"></script>
+</head>
+
+<body>
+    <main class="backend">
+        <form name="setup">
+            <div class="p1-setup">
+                <!-- P1 -->
+                <label for="p1name">
+                    <h3>Player 1</h3>
+                    <input type="text" name="p1name" id="p1name" placeholder="Gamertag" value="">
+                    <input type="text" name="p1name" id="p1nameClone" disabled="true"  class="hidden" value="" placeholder="Gamertag">
+                </label>
+
+                <label for="p1team">
+                    <h3>Team</h3>
+                    <input type="text" name="p1team" id="p1team" placeholder="Team name (optional)">
+                    <input type="text" name="p1team" id="p1teamClone" disabled="true"  class="hidden" value=""
+                        placeholder="Team name (optional)">
+
+                </label>
+
+                <label for="p1country">
+                    <h3>Country</h3>
+                    <select name="p1country" id="p1country">
+                        <option default value="xbox">xbox</option>
+                        <option value="us">usa</option>
+                        <option value="eu">europe</option>
+                        <option value="se">sweden</option>
+                        <option value="de">germany</option>
+                        <option value="mx">mexico</option>
+                        <option value="ca">canada</option>
+                        <option value="en">england</option>
+                        <option value="nl">netherland</option>
+                        <option value="fr">france</option>
+                        <option value="in">india</option>
+                        <option value="sc">scotland</option>
+                        <option value="ws">wales</option>
+                        <option value="ie">ireland</option>
+                        <option value="gb">UK</option>
+                        <option value="cat">catalunia</option>
+                    </select>
+                    <select name="p1country" id="p1countryClone" disabled="true" class="hidden">
+                        <option default value="xbox">xbox</option>
+                        <option value="eu">europe</option>
+                        <option value="us">usa</option>
+                        <option value="se">sweden</option>
+                        <option value="de">germany</option>
+                        <option value="mx">mexico</option>
+                        <option value="ca">canada</option>
+                        <option value="en">england</option>
+                        <option value="nl">netherland</option>
+                        <option value="fr">france</option>
+                        <option value="in">india</option>
+                        <option value="sc">scotland</option>
+                        <option value="ws">wales</option>
+                        <option value="ie">ireland</option>
+                        <option value="gb">UK</option>
+                        <option value="cat">catalunia</option>
+                    </select>
+                </label>
+
+                <label for="p1score">
+                    <h3>Score</h3>
+                    <input type="number" name="p1score" id="p1score" min="0" value="0">
+                    <input type="number" name="p1score" id="p1scoreClone" disabled="true" min="0" value="0" class="hidden">
+                </label>
+            </div>
+            <hr />
+            <!-- P2 -->
+            <div class="p2-setup">
+                <label for="p2name">
+                    <h3>Player 2</h3>
+                    <input type="text" name="p2name" id="p2name" placeholder="Gamertag" value="">
+                    <input type="text" name="p2name" id="p2nameClone" disabled="true" class="hidden" value="" placeholder="Gamertag">
+
+                </label>
+
+                <label for="p2team">
+                    <h3>Team</h3>
+                    <input type="text" name="p2team" id="p2team" placeholder="Team name (optional)">
+                    <input type="text" name="p2team" id="p2teamClone" disabled="true" class="hidden"
+                        placeholder="Team name (optional)">
+                </label>
+
+                <label for="p2country">
+                    <h3>Country</h3>
+                    <select name="p2country" id="p2country">
+                        <option default value="xbox">xbox</option>
+                        <option value="us">usa</option>
+                        <option value="eu">europe</option>
+                        <option value="se">sweden</option>
+                        <option value="de">germany</option>
+                        <option value="mx">mexico</option>
+                        <option value="ca">canada</option>
+                        <option value="en">england</option>
+                        <option value="nl">netherland</option>
+                        <option value="fr">france</option>
+                        <option value="in">india</option>
+                        <option value="sc">scotland</option>
+                        <option value="ws">wales</option>
+                        <option value="ie">ireland</option>
+                        <option value="gb">UK</option>
+                        <option value="cat">catalunia</option>
+                    </select>
+                    <select name="p2country" id="p2countryClone" disabled="true" class="hidden">
+                        <option default value="xbox">xbox</option>
+                        <option value="us">usa</option>
+                        <option value="eu">europe</option>
+                        <option value="se">sweden</option>
+                        <option value="de">germany</option>
+                        <option value="mx">mexico</option>
+                        <option value="ca">canada</option>
+                        <option value="en">england</option>
+                        <option value="nl">netherland</option>
+                        <option value="fr">france</option>
+                        <option value="in">india</option>
+                        <option value="sc">scotland</option>
+                        <option value="ws">wales</option>
+                        <option value="ie">ireland</option>
+                        <option value="gb">UK</option>
+                        <option value="cat">catalunia</option>
+                    </select>
+                </label>
+
+                <label for="p2score">
+                    <h3>Score</h3>
+                    <input type="number" name="p2score" id="p2score" min="0" value="0">
+                    <input type="number" name="p2score" id="p2scoreClone" disabled="true" class="hidden" value="0">
+                </label>
+            </div>
+
+            <hr />
+
+            <!-- Rounds -->
+            <div class="round">
+                <label for="round">
+                    <h3>Round</h3>
+                    <input type="text" name="round" id="round" placeholder="Optional">
+                </label>
+            </div>
+
+            <hr />
+
+            <!-- Commentator -->
+            <div class="commentators-and-game">
+                <label>
+                    <h3>Commentators</h3>
+                    <input name="commentator1" placeholder="Commentator" type="text">
+                    <input name="commentator2" placeholder="Commentator" type="text">
+                    <input name="commentator3" placeholder="Commentator" type="text">
+                </label>
+
+                <label for="game">
+                    <h3>Game profile for CSS</h3>
+                    <select name="game" id="game">
+                        <option value="shamsho">Samurai Shodown 2019</option>
+                        <option value="sf">Street fighter</option>
+                        <option value="dbz">Dragon Ball Fighterz</option>
+                    </select>
+                </label>
+            </div>
+            <button type="button" class="clear-p1-p2">Clear p1 & p2</button>
+            <button type="button" class="swap">Switch</button>
+            <input type="submit" value="Update">
+        </form>
+    </main>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"
+  integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+  crossorigin="anonymous"></script>
+    <script src="./js/backend.js"></script>
+</body>
+
+</html>

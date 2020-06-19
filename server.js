@@ -11,23 +11,31 @@ app.get('/', function (req, res) {
   res.sendFile(__dirname + '/index.html')
 })
 
+app.get('/countdown', function (req, res) {
+  res.sendFile(__dirname + '/pages/break.html')
+})
+
+app.get('/countdown-setup', function (req, res) {
+  res.sendFile(__dirname + '/pages/break-setup.html')
+})
+
 app.get('/backend', function (req, res) {
   let queryUser = req.query.user;
   let queryPassword = req.query.password;
   if (queryUser === process.env.USERNAME && queryPassword ===  process.env.PWRD) {
-    res.sendFile(__dirname + '/backend.html');
+    res.sendFile(__dirname + '/pages/backend.html');
   }
   else {
-    res.sendFile(__dirname + '/403.html');
+    res.sendFile(__dirname + '/pages/403.html');
   }
 })
 
 app.get('/challonge', function(req, res){
-    res.sendFile(__dirname + '/bracket.html');
+    res.sendFile(__dirname + '/pages/bracket.html');
 })
 
 app.get('/brackets', function(req, res){
-  res.sendFile(__dirname + '/obs-tournament-list.html');
+  res.sendFile(__dirname + '/pages/obs-tournament-list.html');
 })
 
 
@@ -86,6 +94,13 @@ io.on('connection', (socket) => {
   socket.on('challonge',(url) => {
     io.emit('challonge-url', {
       challonge : url
+    })
+  })
+  
+  socket.on('countdown', (time) => {
+    console.log(time)
+    io.emit('countdown-time', {
+      time: time
     })
   })
   
