@@ -18,21 +18,22 @@
 
 <body>
     <main class="backend">
-        <form name="setup">
+
+        <form class="scoreboard-form" name="setup">
             <div class="p1-setup">
                 <!-- P1 -->
                 <label for="p1name">
                     <h3>Player 1</h3>
                     <input type="text" name="p1name" id="p1name" placeholder="Gamertag" value="">
-                    <input type="text" name="p1name" id="p1nameClone" disabled="true"  class="hidden" value="" placeholder="Gamertag">
+                    <input type="text" name="p1name" id="p1nameClone" disabled="true" class="hidden" value=""
+                        placeholder="Gamertag">
                 </label>
 
                 <label for="p1team">
                     <h3>Team</h3>
                     <input type="text" name="p1team" id="p1team" placeholder="Team name (optional)">
-                    <input type="text" name="p1team" id="p1teamClone" disabled="true"  class="hidden" value=""
+                    <input type="text" name="p1team" id="p1teamClone" disabled="true" class="hidden" value=""
                         placeholder="Team name (optional)">
-
                 </label>
 
                 <label for="p1country">
@@ -78,16 +79,18 @@
                 <label for="p1score">
                     <h3>Score</h3>
                     <input type="number" name="p1score" id="p1score" min="0" value="0">
-                    <input type="number" name="p1score" id="p1scoreClone" disabled="true" min="0" value="0" class="hidden">
+                    <input type="number" name="p1score" id="p1scoreClone" disabled="true" min="0" value="0"
+                        class="hidden">
                 </label>
             </div>
-            <hr />
+
             <!-- P2 -->
             <div class="p2-setup">
                 <label for="p2name">
                     <h3>Player 2</h3>
                     <input type="text" name="p2name" id="p2name" placeholder="Gamertag" value="">
-                    <input type="text" name="p2name" id="p2nameClone" disabled="true" class="hidden" value="" placeholder="Gamertag">
+                    <input type="text" name="p2name" id="p2nameClone" disabled="true" class="hidden" value=""
+                        placeholder="Gamertag">
 
                 </label>
 
@@ -145,7 +148,7 @@
                 </label>
             </div>
 
-            <hr />
+
 
             <!-- Rounds -->
             <div class="round">
@@ -155,34 +158,44 @@
                 </label>
             </div>
 
-            <hr />
 
-            <!-- Commentator -->
-            <div class="commentators-and-game">
-                <label>
-                    <h3>Commentators</h3>
-                    <input name="commentator1" placeholder="Commentator" type="text">
-                    <input name="commentator2" placeholder="Commentator" type="text">
-                    <input name="commentator3" placeholder="Commentator" type="text">
-                </label>
-
+            <!-- Layout for games -->
+            <div class="game">
                 <label for="game">
                     <h3>Game profile for CSS</h3>
                     <select name="game" id="game">
-                        <option value="shamsho">Samurai Shodown 2019</option>
                         <option value="sf">Street fighter</option>
+                        <option value="shamsho">Samurai Shodown 2019</option>
                         <option value="dbz">Dragon Ball Fighterz</option>
                     </select>
                 </label>
             </div>
             <button type="button" class="clear-p1-p2">Clear p1 & p2</button>
             <button type="button" class="swap">Switch</button>
-            <input type="submit" value="Update">
+            <input type="submit" value="Update" class="submit">
         </form>
+
+
+        <!-- Countdown setup -->
+        <div class="countdown-place">
+            <form class="countdown-form" name="countdown-setup">
+                <label>Countdown</label>
+                <input type="datetime-local" id="countdown-setup" name="countdown">
+                <input type="submit" value="Start countdown">
+            </form>
+        </div>
+
+        <!-- Get challonge -->
+        <div class="challonge-place">
+            <form class="challonge-form" name="bracket-setup">
+                <label>Challonge bracket</label>
+                <input type="text" id="bracket" name="bracket" placeholder="Insert URL">
+                <input type="submit" value="Get Bracket">
+            </form>
+        </div>
     </main>
     <script src="https://code.jquery.com/jquery-3.5.1.js"
-  integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
-  crossorigin="anonymous"></script>
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
     <script src="./js/backend.js"></script>
 </body>
 

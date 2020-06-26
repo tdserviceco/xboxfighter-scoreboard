@@ -6,13 +6,12 @@ let p1name = $('.p1 > .gamertag'),
   p2country = $('.p2 > .country'),
   p1score = $('.p1 > .score'),
   p2score = $('.p2 > .score'),
-  commentator1 = $('.commentators > .commentator-1'),
-  commentator2 = $('.commentators > .commentator-2'),
-  commentator3 = $('.commentators > .commentator-3');
+  round = $('.round')
+
 
 $(document).ready(function () {
-  // const socket = io.connect('http://localhost:3000');
-  const socket = io.connect('https://xboxfighter-scoreboard.herokuapp.com');
+  const socket = io.connect('http://localhost:3000');
+  // const socket = io.connect('https://xboxfighter-scoreboard.herokuapp.com');
   socket.on('template', (data) => {
     // Display what template we are using
     if (data.template.value === 'sf') {
@@ -23,15 +22,15 @@ $(document).ready(function () {
       $('body').removeClass('sf dbz');
       $('body').addClass('shamsho');
     }
-    
+
     if (data.template.value === 'dbz') {
       $('body').removeClass('sf shamsho');
       $('body').addClass('dbz');
     }
-    
+
   })
   socket.on('layout', (data) => {
-    // console.log(data)
+    console.log(data)
     // Check update for Player 1
     if ($('#p1flag').attr('src') !== './flags/' + data.layout.p1country.value + '.png') {
       p1country.html('<img id="p1flag" src="./flags/' + data.layout.p1country.value + '.png" alt="country flag" />');
@@ -78,28 +77,8 @@ $(document).ready(function () {
       p2score.html('<span>' + data.layout.p2score.value + '</span>')
     }
 
-    // Check who is commentating and if someone need to drop out then remove him.
-    if(commentator1.html() !== data.layout.commentator1.value) {
-      commentator1.html('<i class="fas fa-microphone-alt"></i><b>'+data.layout.commentator1.value+'</b>')
-    }
-
-    if(commentator2.html() !== data.layout.commentator2.value) {
-      commentator2.html('<i class="fas fa-microphone-alt"></i><b>'+data.layout.commentator2.value+'</b>')
-    }
-    if(commentator3.html() !== data.layout.commentator3.value) {
-      commentator3.html('<i class="fas fa-microphone-alt"></i><b>'+data.layout.commentator3.value+'</b>')
-    }
-
-    if(data.layout.commentator1.value === '') {
-      commentator1.html('');
-    }
-
-    if(data.layout.commentator2.value === '') {
-      commentator2.html('');
-    }
-
-    if(data.layout.commentator3.value === '') {
-      commentator3.html('');
+    if (round.html() !== data.layout.round.value) {
+      round.html('<span>' + data.layout.round.value + '</span>')
     }
   })
 })

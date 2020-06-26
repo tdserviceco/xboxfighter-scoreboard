@@ -7,9 +7,9 @@ let update = false,
 $(document).ready(function () {
   clearP1AndP2()
   swapPlace();
-  // const socket = io.connect('http://localhost:3000');
-  const socket = io.connect('https://xboxfighter-scoreboard.herokuapp.com');
-  $('form').on('submit', function (e) {
+  const socket = io.connect('http://localhost:3000');
+  // const socket = io.connect('https://xboxfighter-scoreboard.herokuapp.com');
+  $('form.scoreboard-form').on('submit', function (e) {
     e.preventDefault();
     clicks++;
     if (clicks > 1) {
@@ -19,6 +19,7 @@ $(document).ready(function () {
     value.unshift(
       { name: 'update', value: update }
     );
+    console.log(value)
     sendData(value)
   })
 
@@ -141,19 +142,19 @@ $(document).ready(function () {
 
     // SCORES 
 
-    p1score.on('keyup', function(e) {
+    p1score.on('keyup', function (e) {
       cloneP2score.val(p1score.val())
     })
 
-    p2score.on('keyup', function(e) {
+    p2score.on('keyup', function (e) {
       cloneP1score.val(p2score.val())
     })
 
-    cloneP1score.on('keyup', function(e) {
+    cloneP1score.on('keyup', function (e) {
       p2score.val(cloneP1score.val())
     })
 
-    cloneP2score.on('keyup', function(e) {
+    cloneP2score.on('keyup', function (e) {
       p1score.val(cloneP2score.val())
     })
 
@@ -202,4 +203,14 @@ $(document).ready(function () {
       cloneP2score.toggleClass('show');
     })
   }
+
+  // Countdown setup
+  $('form.countdown-form').on('submit', function (e) {
+    e.preventDefault();
+    value = $(this).serializeArray();
+    console.log(value)
+    socket.emit('countdown', { data: value });
+  });
+
 })
+

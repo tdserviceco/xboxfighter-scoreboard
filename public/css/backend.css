@@ -9,42 +9,14 @@
   display: inline-block;
 }
 
-.p1-setup, .p2-setup {
-  display: flex;
+.scoreboard-form, .countdown-place, .challonge-place {
+  margin: 10px;
 }
 
-.commentators-and-game h3 {
+.game, .round, .p2-setup label, .p1-setup label {
+  margin-top: 10px;
+}
+
+.game {
   margin-bottom: 10px;
-}
-
-.commentators-and-game input {
-  margin-bottom: 10px;
-}
-
-select[name='game'] {
-  margin-bottom: 10px;
-}
-
-form {
-  padding: 10px;
-}
-
-@media(min-width: 600px) {
-  .p1-setup, .p2-setup {
-    padding: 10px;
-  }
-  form {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    border: 1px solid #000;
-  }
-  label h3 {
-    margin: 5px 0;
-  }
-  .round, .commentators-and-game {
-    padding: 10px;
-  }
-  
 }

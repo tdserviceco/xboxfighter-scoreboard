@@ -66,13 +66,11 @@ io.on('connection', (socket) => {
       p2team = data.value[6],
       p2country = data.value[7],
       p2score = data.value[8],
-      // let round = data.value[9];
-      commentator1 = data.value[10],
-      commentator2 = data.value[11],
-      commentator3 = data.value[12],
-      template = data.value[13];
+      round = data.value[9],
+      template = data.value[10]
 
     io.emit('template', { 'template': template })
+
     io.emit('layout', {
       'layout': {
         doUpdate: doUpdate,
@@ -84,9 +82,7 @@ io.on('connection', (socket) => {
         p2team: p2team,
         p2country: p2country,
         p2score: p2score,
-        commentator1: commentator1,
-        commentator2: commentator2,
-        commentator3: commentator3
+        round : round
       }
     })
   });
@@ -97,10 +93,10 @@ io.on('connection', (socket) => {
     })
   })
   
-  socket.on('countdown', (time) => {
-    console.log(time)
+  socket.on('countdown', (countdown) => {
+    console.log(countdown)
     io.emit('countdown-time', {
-      time: time
+      time: countdown      
     })
   })
   

@@ -9,31 +9,28 @@
   <script src="/socket.io/socket.io.js"></script>
 </head>
 
-<body>
+<body class="sf">
   <main class="frontend">
     <div class="scoreboard">
       <div class="p1">
-        <div class="country"></div>
-        <div class="team"></div>
-        <div class="gamertag"></div>
-        <div class="score"></div>
+        <div class="country"><img id="p1flag" src="./flags/xbox.png" alt="country flag for player 1"></div>
+        <div class="team">Xbf</div>
+        <div class="gamertag">P1</div>
+        <div class="score">0</div>
+      </div>
+      <div class="round">
+        Grand final
       </div>
       <div class="p2">
-        <div class="score"></div>
-        <div class="gamertag"></div>
-        <div class="team"></div>
-        <div class="country"></div>
+        <div class="score">0</div>
+        <div class="gamertag">P2</div>
+        <div class="team">Xbf</div>
+        <div class="country"><img id="p2flag" src="./flags/xbox.png" alt="country flag for player 2"></div>
       </div>
     </div>
-    <div class="commentators">
-      <div class="commentator-1"></div>
-      <div class="commentator-2"></div>
-      <div class="commentator-3"></div>
-    </div>
   </main>
-  <script src="https://code.jquery.com/jquery-3.5.1.js"
-  integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
-  crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+    crossorigin="anonymous"></script>
   <script src="https://kit.fontawesome.com/eb9c3bfd77.js" crossorigin="anonymous"></script>
   <script src="./js/frontend.js">
     // Front-end client stuff

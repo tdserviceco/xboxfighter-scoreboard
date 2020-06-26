@@ -26,27 +26,6 @@ body {
   height: 35px;
 }
 
-.commentators {
-  float: left;
-  position: absolute;
-  bottom: 50px;
-  right: 10px;
-}
-
-[class*="commentator-"] {
-  margin: 10px;
-}
-
-.commentators .fa, .commentators .fas {
-  float: left;
-  font-size: 28px;
-}
-
-.commentators b {
-  font-size: 28px;
-  margin-left: 40px;
-}
-
 #break-time {
   position: fixed;
   right: 0;
@@ -59,17 +38,24 @@ body {
 
 #countdown {
   position: fixed;
-  top: 50%;
+  top: 80%;
   left: 50%;
   z-index: 2;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
   font-family: 'PT Sans Narrow', sans-serif;
-  font-size: 250px;
+  font-size: 150px;
 }
 
-.bg {
+.round {
+  position: absolute;
+  left: 50%;
+  top: 15px;
+  transform: translate(-50%, 0);
+}
+
+.break-bg {
+  background: url('../break.png') no-repeat center center;
+  background-size: cover;
   width: 100%;
-  height: 100vh;
-  background: transparent url('../video/008_off-june20.png') no-repeat center center;
-  background-size: cover !important; 
+  height: calc(100vh - 10px);
 }
