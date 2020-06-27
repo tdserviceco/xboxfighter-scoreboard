@@ -10,22 +10,27 @@ let p1name = $('.p1 > .gamertag'),
 
 
 $(document).ready(function () {
-  const socket = io.connect('http://localhost:3000');
-  // const socket = io.connect('https://xboxfighter-scoreboard.herokuapp.com');
+  // const socket = io.connect('http://localhost:3000');
+  const socket = io.connect('https://xboxfighter-scoreboard.herokuapp.com');
   socket.on('template', (data) => {
     // Display what template we are using
     if (data.template.value === 'sf') {
-      $('body').removeClass('shamsho dbz');
+      $('body').removeClass('shamsho dbz sc');
       $('body').addClass('sf');
     }
     if (data.template.value === 'shamsho') {
-      $('body').removeClass('sf dbz');
+      $('body').removeClass('sf dbz sc');
       $('body').addClass('shamsho');
     }
 
     if (data.template.value === 'dbz') {
-      $('body').removeClass('sf shamsho');
+      $('body').removeClass('sf shamsho sc');
       $('body').addClass('dbz');
+    }
+
+    if (data.template.value === 'sc') {
+      $('body').removeClass('sf shamsho dbz');
+      $('body').addClass('sc');
     }
 
   })

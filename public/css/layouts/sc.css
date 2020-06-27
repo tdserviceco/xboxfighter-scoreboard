@@ -1,0 +1,57 @@
+@import '../main.css';
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:wght@700&display=swap');
+
+.sc {
+  font-family: 'Crimson Text', serif;
+  font-size: 28px;
+}
+
+.sc .scoreboard {
+  background-image: url('../../layouts/sc.png');
+}
+
+.sc .score {
+  position: absolute;
+}
+
+.sc .p1 .score {
+  line-height: 1.2;
+  left: 521px;
+}
+.sc .p2 .score {
+  line-height: 1.2;
+  right: 515px;
+}
+
+.sc .p1, .sc .p2 {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  top: 12px;
+}
+
+.sc .p1 {
+  left: 215px;
+}
+
+.sc .p2 {
+  right: 220px;
+}
+
+.sc .p1>.country {
+  box-shadow: 9px 0px 9px -9px rgba(255, 165, 0, 0.58);
+  margin-right: 20px;
+}
+
+.sc .p1>.team, 
+.sc .p1>.gamertag {
+  margin-right: 20px;
+  line-height: 1.3;
+}
+
+.sc .p2>.team,
+.sc .p2>.gamertag {
+  margin-right: 20px;
+  line-height: 1.3;
+}
