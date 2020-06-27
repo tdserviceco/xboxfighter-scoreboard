@@ -5,8 +5,7 @@ $(document).ready(function () {
   // Set the date we're counting down to
   socket.on('countdown-time', (countdown) => {
     console.log("count: " + countdown.time.data[0].value)
-    $('.break-time').empty();
-    $('.break-time').append('<div id="countdown class=""></div>')
+    $('body').append('<div class="break-time"><div id="countdown"></div></div>')
     countDownDate = new Date(countdown.time.data[0].value).getTime();
   })
 
