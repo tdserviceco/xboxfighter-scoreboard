@@ -4,6 +4,7 @@
 @import './layouts/shamsho.css';
 @import './layouts/sf.css';
 @import './layouts/dbz.css';
+@import './layouts/sc.css';
 @import url('https://fonts.googleapis.com/css2?family=PT+Sans+Narrow:wght@400;700&display=swap');
 body {
   color: #fff;
