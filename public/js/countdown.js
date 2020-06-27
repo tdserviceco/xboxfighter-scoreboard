@@ -7,6 +7,7 @@ $(document).ready(function () {
     console.log("count: " + countdown.time.data[0].value)
     $('.break-time').empty();
     $('.break-time').append('<div id="countdown"></div>')
+    $('.break-time').removeClass('hide')
     countDownDate = new Date(countdown.time.data[0].value).getTime();
   })
 

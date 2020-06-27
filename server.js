@@ -88,6 +88,7 @@ io.on('connection', (socket) => {
   });
   
   socket.on('challonge',(url) => {
+    console.log(url)
     io.emit('challonge-url', {
       challonge : url
     })

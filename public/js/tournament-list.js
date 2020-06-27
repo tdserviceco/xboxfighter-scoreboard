@@ -48,7 +48,7 @@ $(document).ready(function () {
       };
 
     }).call(this);
-    $('.xbf').attr('src', 'http://challonge.com/' + data.challonge.url + '/module?scale_to_fit=1');
+    $('.xbf').attr('src', 'http://challonge.com/' + data.challonge.data[0].value + '/module?scale_to_fit=1');
   })
 
 })
