@@ -5,7 +5,8 @@ let update = false,
   accept = false;
 
 $(document).ready(function () {
-  clearP1AndP2()
+  SortList();
+  clearP1AndP2();
   swapPlace();
   // const socket = io.connect('http://localhost:3000');
   const socket = io.connect('https://xboxfighter-scoreboard.herokuapp.com');
@@ -217,6 +218,25 @@ $(document).ready(function () {
       cloneP1score.toggleClass('show');
       cloneP2score.toggleClass('show');
     })
+  }
+
+  function SortList() {
+    $("#p1country").append($("#p1country option").remove().sort(function (a, b) {
+      var at = $(a).text(), bt = $(b).text();
+      return (at > bt) ? 1 : ((at < bt) ? -1 : 0);
+    }));
+    $("#p2country").append($("#p2country option").remove().sort(function (a, b) {
+      var at = $(a).text(), bt = $(b).text();
+      return (at > bt) ? 1 : ((at < bt) ? -1 : 0);
+    }));
+    $("#p2countryClone").append($("#p2countryClone option").remove().sort(function (a, b) {
+      var at = $(a).text(), bt = $(b).text();
+      return (at > bt) ? 1 : ((at < bt) ? -1 : 0);
+    }));
+    $("#p1countryClone").append($("#p1countryClone option").remove().sort(function (a, b) {
+      var at = $(a).text(), bt = $(b).text();
+      return (at > bt) ? 1 : ((at < bt) ? -1 : 0);
+    }));
   }
 })
 

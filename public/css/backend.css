@@ -20,3 +20,10 @@
 .game {
   margin-bottom: 10px;
 }
+
+#p2country,
+#p2countryClone,
+#p1country,
+#p1countryClone {
+  text-transform: capitalize;
+}
