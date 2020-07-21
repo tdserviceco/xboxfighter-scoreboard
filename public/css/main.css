@@ -57,10 +57,3 @@ body {
   top: 15px;
   transform: translate(-50%, 0);
 }
-
-.break-bg {
-  background: url('../break.png') no-repeat center center;
-  background-size: cover;
-  width: 100%;
-  height: calc(100vh - 10px);
-}
