@@ -10,8 +10,8 @@ let p1name = $('.p1 > .gamertag'),
 
 
 $(document).ready(function () {
-  // const socket = io.connect('http://localhost:3000');
-  const socket = io.connect('https://xboxfighter-scoreboard.herokuapp.com');
+  const socket = io.connect('http://localhost:3000');
+  // const socket = io.connect('https://xboxfighter-scoreboard.herokuapp.com');
   socket.on('template', (data) => {
     // Display what template we are using
     if (data.template.value === 'sf') {

@@ -8,8 +8,8 @@ $(document).ready(function () {
   SortList();
   clearP1AndP2();
   swapPlace();
-  // const socket = io.connect('http://localhost:3000');
-  const socket = io.connect('https://xboxfighter-scoreboard.herokuapp.com');
+  const socket = io.connect('http://localhost:3000');
+  // const socket = io.connect('https://xboxfighter-scoreboard.herokuapp.com');
   $('form.scoreboard-form').on('submit', function (e) {
     e.preventDefault();
     clicks++;

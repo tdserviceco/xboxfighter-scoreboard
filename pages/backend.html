@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/backend.css">
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
@@ -11,8 +12,6 @@
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#0e7a0d">
     <title>XboxfightersFGC Scoreboard Setup</title>
-    <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
-    <link rel="stylesheet" href="./css/backend.css">
     <script src="/socket.io/socket.io.js"></script>
 </head>
 
@@ -56,6 +55,8 @@
                         <option value="gb">uk</option>
                         <option value="cat">catalunia</option>
                         <option value="gy">guyana</option>
+                        <option value="hk">hong-kong</option>
+                        <option value="jp">japan</option>
                     </select>
                     <select name="p1country" id="p1countryClone" disabled="true" class="hidden">
                         <option default value="xbox">xbox</option>
@@ -75,6 +76,8 @@
                         <option value="gb">uk</option>
                         <option value="cat">catalunia</option>
                         <option value="gy">guyana</option>
+                        <option value="hk">hong-kong</option>
+                        <option value="jp">japan</option>
                     </select>
                 </label>
 
@@ -123,7 +126,8 @@
                         <option value="gb">uk</option>
                         <option value="cat">catalunia</option>
                         <option value="gy">guyana</option>
-
+                        <option value="hk">hong-kong</option>
+                        <option value="jp">japan</option>
                     </select>
                     <select name="p2country" id="p2countryClone" disabled="true" class="hidden">
                         <option default value="xbox">xbox</option>
@@ -143,6 +147,8 @@
                         <option value="gb">uk</option>
                         <option value="cat">catalunia</option>
                         <option value="gy">guyana</option>
+                        <option value="hk">hong-kong</option>
+                        <option value="jp">japan</option>
                     </select>
                 </label>
 
@@ -153,8 +159,6 @@
                 </label>
             </div>
 
-
-
             <!-- Rounds -->
             <div class="round">
                 <label for="round">
@@ -162,7 +166,6 @@
                     <input type="text" name="round" id="round" placeholder="Optional">
                 </label>
             </div>
-
 
             <!-- Layout for games -->
             <div class="game">
@@ -180,7 +183,6 @@
             <button type="button" class="swap">Switch</button>
             <input type="submit" value="Update" class="submit">
         </form>
-
 
         <!-- Countdown setup -->
         <div class="countdown-place">

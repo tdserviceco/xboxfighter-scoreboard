@@ -22,6 +22,7 @@ app.get('/countdown-setup', function (req, res) {
 app.get('/backend', function (req, res) {
   let queryUser = req.query.user;
   let queryPassword = req.query.password;
+
   if (queryUser === process.env.USERNAME && queryPassword ===  process.env.PWRD) {
     res.sendFile(__dirname + '/pages/backend.html');
   }
