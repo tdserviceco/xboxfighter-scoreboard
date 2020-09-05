@@ -1,7 +1,7 @@
 $(document).ready(function () {
   var countDownDate;
-  const socket = io.connect('http://localhost:3000/');
-  // const socket = io.connect('https://xboxfighter-scoreboard.herokuapp.com/');
+  // const socket = io.connect('http://localhost:3000/');
+  const socket = io.connect('https://xboxfighter-scoreboard.herokuapp.com/');
   // Set the date we're counting down to
   socket.on('countdown-time', (countdown) => {
     console.log("count: " + countdown.time.data[0].value)
